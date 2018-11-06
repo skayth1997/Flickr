@@ -23,7 +23,7 @@
         <div class="row border">
             <div class="col-12">
                 <form id="form" class="text-center mt-5">
-                    <input type="text" class="col-8 primary">
+                    <input type="text" class="col-8 primary" name="search">
                     <button type="submit" class="col-2" id="but">Search</button>
                 </form>
                 <div class="mt-5 border col-10 mx-auto" style="height: 250px;"></div>
@@ -33,6 +33,8 @@
             </div>
         </div>
     </div>
+
+    <div id="dddd">a</div>
 
     <script src="script.js"></script>
 
