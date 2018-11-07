@@ -8,8 +8,8 @@ $('#form').submit(function () {
         dataType: 'json',
         data: data,
         success: function (data) {
-            // console.log(data);
-            console.log(data[0]);
+            console.log(data);
+            console.log(data[0][1]);
         }
     });
     return false;

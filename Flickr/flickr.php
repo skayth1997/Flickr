@@ -2,24 +2,48 @@
 
 $search = $_GET['search'];
 
-if (strlen($search)>0){
 
+if (strlen($search)>0) {
+    $array_count = explode(' ', $search);
     $url = 'https://www.flickr.com/search/?text=';
-    $content = file_get_contents($url . urlencode($search));
-    $dom = new domDocument;
     libxml_use_internal_errors(true);
-    $dom->loadHTML($content);
-    $divs = $dom->getElementsByTagName('div');
+
     $arr = array();
 
-    foreach ($divs as $div) {
-        $style = $div->getAttribute('style');
-        $match_count = preg_match('/background-image:(.*?).jpg/', $style, $matches);
-        if ($match_count > 0) {
-            array_push($arr, $matches[0]);
+    $i = 0;
+    foreach ($array_count as $count) {
+        $arrays[] = $count;
+        array_push($arr, $arrays);
+        $arrays = [];
+        $i++;
+    }
+
+    $i = 0;
+    foreach ($array_count as $count) {
+        $content = file_get_contents($url . $count);
+        $dom = new domDocument;
+        $dom->loadHTML($content);
+        $divs = $dom->getElementsByTagName('div');
+
+        $cycle = 0;
+        foreach ($divs as $div) {
+            if ($cycle == 5){
+                break;
+            }
+            $style = $div->getAttribute('style');
+            $match_count = preg_match('/background-image:(.*?).jpg/', $style, $matches);
+            if ($match_count > 0) {
+                array_push($arr[$i], $matches[0]);
+                $cycle++;
+            }
         }
+        $i++;
     }
 
     echo json_encode($arr);
 
 }
+
+
+
+
