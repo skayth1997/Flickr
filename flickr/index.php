@@ -34,8 +34,6 @@
         </div>
     </div>
 
-    <div id="dddd">a</div>
-
     <script src="script.js"></script>
 
 </body>

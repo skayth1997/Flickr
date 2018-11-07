@@ -16,18 +16,10 @@ if (strlen($search)>0){
         $style = $div->getAttribute('style');
         $match_count = preg_match('/background-image:(.*?).jpg/', $style, $matches);
         if ($match_count > 0) {
-//            array_push($arr, json_encode($matches[0]));
             array_push($arr, $matches[0]);
         }
     }
 
-    $out = array_values($arr);
-//    var_dump($arr);
-
-    return json_encode($out);
-
-//    $arr = json_encode($arr);
-
-//    return $arr;
+    echo json_encode($arr);
 
 }

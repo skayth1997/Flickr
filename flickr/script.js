@@ -5,10 +5,11 @@ $('#form').submit(function () {
     $.ajax({
         type: 'GET',
         url: 'flickr.php',
-        dataType: 'html',
+        dataType: 'json',
         data: data,
         success: function (data) {
-            console.log(data);
+            // console.log(data);
+            console.log(data[0]);
         }
     });
     return false;
