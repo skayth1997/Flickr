@@ -16,12 +16,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <style>
-        #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
-        #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
-        .ui-state-highlight { background: green; }
-    </style>
-
     <title>Document</title>
 </head>
 <body>
