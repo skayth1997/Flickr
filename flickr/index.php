@@ -20,15 +20,15 @@
 </head>
 <body>
 
-<div class="container mt-5 p-5">
-        <div class="row border">
+    <div class="container mt-3 p-5">
+        <div class="row border rounded">
             <div class="col-12">
                 <form id="form" class="text-center mt-5">
-                    <input type="text" class="col-8 primary" name="search">
+                    <input type="text" id="search" class="col-8 primary" name="search">
                     <button type="submit" class="col-2" id="but">Search</button>
                 </form>
-                <div id="images" class="mt-5 border col-10 mx-auto" style="height: 250px;"></div>
-                <div class="mt-5" id="div_but"></div>
+                <div id="images" class="mt-3 col-10 mx-auto text-center h1 text-info" style="height: 205px;">Search Pics To Sort</div>
+                <div id="div_but" class="col-10 mt-3 mb-3 text-center mx-auto"></div>
             </div>
         </div>
     </div>
