@@ -35,7 +35,7 @@ function images (result) {
 			}
 		}
 	
-	$('#div_but').append(
+	    $('#div_but').append(
 		'<div class="droppable text-center border col-3 pt-3 pb-3 mt-3 ml-5 mr-5"'+
 		'style="display: inline-block;">'+ input_val[repeat] +'</div>');
 
