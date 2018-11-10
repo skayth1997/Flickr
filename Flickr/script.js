@@ -22,6 +22,7 @@ function repeat_func() {
 	});
 }
 
+var data = {};
 function images (result) {
 
 	if (result.items.length > 4){
@@ -34,13 +35,16 @@ function images (result) {
 				break;
 			}
 		}
+
+	data[input_val[repeat]] = [];
+
 	
-	    $('#div_but').append(
+	$('#div_but').append(
 		'<div class="droppable text-center border col-3 pt-3 pb-3 mt-3 ml-5 mr-5"'+
 		'style="display: inline-block;">'+ input_val[repeat] +'</div>');
 
 	}
-
+	
 	repeat++;
 	if (repeat != input_val.length) {
 		repeat_func();
@@ -57,16 +61,31 @@ $('#images').on('mouseover', '.image', function () {
     $( ".droppable" ).droppable({
         drop: function(event, ui) {
             if (ui.draggable.hasClass($(this).html())){
+            	data[$(this).html()].push(ui.draggable.attr('src'));
                 ui.draggable.remove();
+                if ($('#images > img').length == 0) {
+                	$('#images').html("Done. Search new pics to sort");
+                }
             }
             else{
                 ui.draggable.draggable('option', 'revert', true);
             }
         },
     });
-    $("#images").on('mouseup', function() {
-        if ($('#images > img').length == 1){
-            $('#images').html("Done. Search new pics to sort");
-        }
-    });
+});
+
+$('#div_but').on('click', '.droppable', function () {
+	if (data[$(this).html()].length > 0) {
+		$('#final_look').css('display', 'block');
+		for (var i=0; i<data[$(this).html()].length; i++) {
+			$('#final_look').append(
+				'<img style="width: 150px; height: 85px; margin: 30px 10px 10px 10px;"' +
+				'src="'+data[$(this).html()][i]+'">');
+		}
+	}
+});
+
+$('#close').click(function() {
+	$('#final_look').css('display', 'none');
+	$('#final_look :not(#close)').remove();
 });
